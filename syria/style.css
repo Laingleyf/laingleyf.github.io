@@ -1,126 +1,266 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* ── Design tokens ───────────────────────── */
+:root {
+  --ink: #111111;
+  --ink-light: #555555;
+  --rule: #222222;
+  --accent: #c0392b;
+  --bg: #f9f7f2;
+  --white: #ffffff;
+  --serif-display: "Playfair Display", Georgia, serif;
+  --serif-body: "Source Serif 4", Georgia, serif;
+  --sans: "DM Sans", system-ui, sans-serif;
+  --max-w: 780px;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+/* ── Base ────────────────────────────────── */
+body {
+  font-family: var(--serif-body);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+/* ── Top bar ─────────────────────────────── */
+.topbar {
+  background-color: var(--ink);
+  color: #aaa;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 0;
+  border-bottom: 1px solid #333;
+}
 
-    <link rel="stylesheet" href="style.css" />
+.topbar a {
+  color: #aaa;
+  text-decoration: none;
+}
 
-    <title>Syracuse Reports</title>
-  </head>
+.topbar a:hover {
+  color: var(--white);
+}
 
-  <body>
-    <!-- Top utility bar -->
-    <div class="topbar">
-      <div
-        class="container d-flex justify-content-between align-items-center"
-        style="max-width: var(--max-w)"
-      >
-        <span id="topbar-date"></span>
-        <span></span>
-      </div>
-    </div>
+/* ── Masthead ────────────────────────────── */
+.masthead {
+  background-color: var(--white);
+  border-bottom: 3px solid var(--rule);
+  padding: 24px 0 16px;
+}
 
-    <!-- Masthead -->
-    <header class="masthead">
-      <div class="masthead-inner">
-        <a class="publication-name" href="#">Syracuse Reports<span>.</span></a>
-        <div class="masthead-meta">
-          Syracuse University<br />S.I. Newhouse School
-        </div>
-      </div>
-    </header>
+.masthead-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-    <!-- Section nav -->
-    <nav class="section-nav" aria-label="Site sections">
-      <div class="section-nav-inner">
-        <a href="#" class="active">Home</a>
-        <a href="#">Section 1</a>
-        <a href="#">Section 2</a>
-        <a href="#">Section 3</a>
-      </div>
-    </nav>
+.publication-name {
+  font-family: var(--serif-display);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+}
 
-    <!-- Article -->
-    <main class="article-wrapper">
-      <div class="article-section-label">JNL 221 Reports</div>
+.publication-name:hover {
+  color: var(--ink);
+}
 
-      <h1 class="article-headline">U.S. Troops in Syria</h1>
+.publication-name span {
+  color: var(--accent);
+}
 
-      <p class="article-deck">
-       U.S. troops were deployed to Syria in 2018 and this article explains why and specifically where in Syria. 
-      </p>
+.masthead-meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  text-align: right;
+  line-height: 1.5;
+}
 
-      <div class="article-byline">
-        <span>By <span class="byline-author">Laingley Freemyer</span></span>
-        <span id="Laingley Freemyer - March 4th, 2026"></span>
-      </div>
+/* ── Nav ─────────────────────────────────── */
+.section-nav {
+  background-color: var(--white);
+  border-bottom: 1px solid #ddd;
+}
 
-      <div class="article-body">
-        <p>
-          In April of 2018, President Donald Trump deployed around 2,000 U.S. troops to Northern, Eastern and Southern parts of Syria. This was in an effort to defeat ISIS during the Syrian Civil War. Troops worked alongside Syrian Democratic Forces to work to support local Syrian residents and stabalizing local areas. In December of 2018, President Trump withdrew U.S. troops declaring victory over the islamic state. 
-        </p>
+.section-nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  overflow-x: auto;
+}
 
-        <hr class="section-rule" />
+.section-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: border-color 0.15s;
+}
 
-        <!-- Datawrapper chart -->
-        <div class="embed-block">
-          <div class="embed-label">Chart</div>
-          <div class="embed-placeholder">
-          <iframe title="U.S. Troops in Syria" aria-label="Line chart" id="datawrapper-chart-UF7dN" src="https://datawrapper.dwcdn.net/UF7dN/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="407" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-          .
-          </div>
-        </div>
+.section-nav a:hover,
+.section-nav a.active {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
 
-        <hr class="section-rule" />
+/* ── Article layout ──────────────────────── */
+.article-wrapper {
+  max-width: var(--max-w);
+  margin: 48px auto;
+  padding: 0 24px;
+}
 
-        
+/* ── Article header ──────────────────────── */
+.article-section-label {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
 
-    
+.article-headline {
+  font-family: var(--serif-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
 
-        <!-- Google Map -->
-   
+.article-deck {
+  font-family: var(--serif-body);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+}
 
-<iframe title="U.S. Troops in Syria in 2018" aria-label="Locator map" id="datawrapper-chart-UwMqt" src="https://datawrapper.dwcdn.net/UwMqt/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="558" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+.article-byline {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-light);
+  padding: 16px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
+.byline-author {
+  font-weight: 600;
+  color: var(--ink);
+}
 
-    </main>
+/* ── Body text ───────────────────────────── */
+.article-body p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
 
-    <!-- Footer -->
-    <footer></footer>
+.article-body p:first-of-type::first-letter {
+  font-family: var(--serif-display);
+  font-size: 4rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.8;
+  margin-right: 8px;
+  margin-top: 6px;
+  color: var(--ink);
+}
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+/* ── Embed placeholders ──────────────────── */
+.embed-block {
+  margin: 36px 0;
+}
 
-    <script>
-      const now = new Date();
-      const opts = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-      const dateStr = now.toLocaleDateString("en-US", opts);
-      document.getElementById("topbar-date").textContent = dateStr;
-      document.getElementById("byline-date").textContent = dateStr;
-      document.getElementById("footer-year").textContent = now.getFullYear();
-    </script>
-  </body>
-</html>
+.embed-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+}
+
+.embed-placeholder {
+  background-color: #f0ede6;
+  border: 1px dashed #bbb;
+  border-radius: 2px;
+  padding: 40px 24px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ── Horizontal rule ─────────────────────── */
+.section-rule {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 40px 0;
+}
+
+/* ── Footer ──────────────────────────────── */
+footer {
+  background-color: var(--ink);
+  color: #888;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  padding: 32px 24px;
+  margin-top: 64px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+footer .footer-name {
+  font-family: var(--serif-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  margin-bottom: 8px;
+}
